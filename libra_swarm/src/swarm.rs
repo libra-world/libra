@@ -256,9 +256,9 @@ impl LibraSwarm {
             Some(dir_str) => {
                 let path_buf = PathBuf::from_str(&dir_str).expect("unable to create config dir");
                 if path_buf.exists() {
-                    std::fs::remove_dir_all(dir_str).expect("unable to delete previous config dir");
+                    //std::fs::remove_dir_all(dir_str).expect("unable to delete previous config dir");
                 }
-                std::fs::create_dir_all(dir_str).expect("unable to create config dir");
+                //std::fs::create_dir_all(dir_str).expect("unable to create config dir");
                 LibraSwarmDir::Persistent(path_buf)
             }
             None => LibraSwarmDir::Temporary(
@@ -277,7 +277,7 @@ impl LibraSwarm {
         template_path: &Option<String>,
     ) -> std::result::Result<Self, SwarmLaunchFailure> {
         let logs_dir_path = dir.as_ref().join("logs");
-        std::fs::create_dir(&logs_dir_path).unwrap();
+        //std::fs::create_dir(&logs_dir_path).unwrap();
         let base = utils::workspace_root().join(
             template_path
                 .as_ref()
